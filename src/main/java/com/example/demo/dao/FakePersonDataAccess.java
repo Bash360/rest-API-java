@@ -1,14 +1,16 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Person;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class FakePersonDataAccess implements PersonDao{
-    private static ArrayList<Person> person = new ArrayList();
+    private static ArrayList<Person> DB = new ArrayList();
     @Override
     public int insertPerson(UUID id, Person person) {
-        return 0;
+      DB.add(new Person(id,person.getName()));
+        return 1;
     }
+
+
 }
