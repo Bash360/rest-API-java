@@ -1,9 +1,12 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Person;
-import java.util.ArrayList;
-import java.util.UUID;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+@Repository("fakeDao")
 public class FakePersonDataAccess implements PersonDao{
     private static ArrayList<Person> DB = new ArrayList();
     @Override
@@ -12,5 +15,8 @@ public class FakePersonDataAccess implements PersonDao{
         return 1;
     }
 
-
+    @Override
+    public List<Person> selectPeople() {
+        return DB;
+    }
 }
