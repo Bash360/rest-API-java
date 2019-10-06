@@ -35,11 +35,11 @@ public class FakePersonDataAccess implements PersonDao{
     }
 
     @Override
-    public int updatePersonById(UUID id, Person person) {
-        return selectPerson(id).map(p->{
-            int indexOfPerson= DB.indexOf(p);
+    public int updatePersonById(UUID id, Person update) {
+        return selectPerson(id).map(foundPerson->{
+            int indexOfPerson= DB.indexOf(foundPerson);
             if(indexOfPerson>=0){
-                DB.set(indexOfPerson,p);
+                DB.set(indexOfPerson,new Person(id,update.getName()));
                 return 1;
             }
             return 0;
