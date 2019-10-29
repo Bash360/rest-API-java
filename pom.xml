@@ -24,11 +24,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.0.0</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -39,5 +42,10 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<developers>
+	<developer><email>beejayphil@gmail.com</email>
+	<url>github.com/bash360</url>
+		<name>mark bashir</name>
+	</developer>
+</developers>
 </project>

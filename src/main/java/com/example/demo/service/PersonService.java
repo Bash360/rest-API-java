@@ -12,27 +12,27 @@ import java.util.UUID;
 
 @Service
 public class PersonService {
-    private final PersonDao persondao;
-@Autowired
-    public PersonService(@Qualifier("fakeDao") PersonDao persondao) {
-        this.persondao = persondao;
-    }
-    public int addPerson(Person person){
+    @Autowired
+    private final PersonDao personDao;
 
-        return persondao.insertPerson(person);
+    public PersonService(@Qualifier("fakeDao") PersonDao personDao) {
+        this.personDao = personDao;
+    }
+
+    public Person addPerson(Person person){
+        return  personDao.insertPerson(person);
 
     }
-    public List<Person> getPeople(){
-    return persondao.selectPeople();
+    public List<Person> getAllPeople(){
+        return personDao.selectPeople();
     }
     public Optional<Person> getPersonById(UUID id){
-    return persondao.selectPerson(id);
+        return personDao.selectPerson(id);
     }
-    public int deletePerson(UUID id){
-    return persondao.deletePersonById(id);
+    public boolean deletePerson(UUID id){
+        return personDao.DeletePersonById(id);
     }
-    public int updatePerson(UUID id,Person person){
-    return persondao.updatePersonById(id,person);
+    public Person updatePerson(UUID id,Person person){
+        return personDao.updatePersonById(id,person);
     }
-
 }
